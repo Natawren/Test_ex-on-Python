@@ -6,7 +6,6 @@ def compare_numbers(i, number):
     else:
         number = number | i
         return number
-        print("result:",  number)
 
 def check_if_only_unique_chars(a):
     first = 0
@@ -17,9 +16,7 @@ def check_if_only_unique_chars(a):
     if ln == 0:
         return True
     for j in range(ln):
-        i = 1
         i = 1 << (ord(a[j]) % 64 - 1)
-        print(i, ord(a[j]))
         if ord(a[j]) // 64 == 0:
             first = compare_numbers(i, first)
         elif ord(a[j]) // 64 == 1:
@@ -29,7 +26,7 @@ def check_if_only_unique_chars(a):
         else:
             forth = compare_numbers(i, forth)
         if (first < 0 or second < 0 or third < 0 or forth < 0):
-            return Falss
+            return False
     return True
 a = input()
 print(check_if_only_unique_chars(a))
