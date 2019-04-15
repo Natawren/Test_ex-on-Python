@@ -13,10 +13,9 @@ def check_if_only_unique_chars(a):
     third = 0
     forth = 0
     ln = len(a)
-    if ln == 0:
-        return True
     for j in range(ln):
-        i = 1 << (ord(a[j]) % 64 - 1)
+        n = ord(a[j]) % 64
+        i = (1 << n) if n > 0 else 1
         if ord(a[j]) // 64 == 0:
             first = compare_numbers(i, first)
         elif ord(a[j]) // 64 == 1:
