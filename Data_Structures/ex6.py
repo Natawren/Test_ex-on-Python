@@ -15,13 +15,12 @@ def     reading_data(data):
             i = 0
             for i in line.split():
                 int(i)
-            if check_len_row(data, line) == False:
-                return False
-            data.append(line.split())
-            continue
         except ValueError:
             print("That's not an int!\n")
             return False
+        if check_len_row(data, line) == False:
+            return False
+        data.append(line.split())
     len_x = len(data)
     if  len_x == 0:
         return False
@@ -35,7 +34,6 @@ def     check_null(data, zerros):
                     zerros[0].append(i)
                 if (j not in zerros[1]):
                     zerros[1].append(j)
-    print(zerros)
     return zerros
 
 def     set_null(data):
