@@ -4,18 +4,17 @@ import sys
 
 data = []
 
+
 def rotate_matrix(data):
     len_data = len(data)
-    if len_data % 2 != 0:
-        len_data -= 1
-    for i in range(len_data // 2 ):
+    for i in range(len_data // 2):
         last = len_data - i - 1
         j = i
         while j < last:
             offset = j - i
             temp = data[i][j]
-            data[i][j] = data[last - offset][j]
-            data[last - offset][j] = data[last][last - offset]
+            data[i][j] = data[last - offset][i]
+            data[last - offset][i] = data[last][last - offset]
             data[last][last - offset] = data[j][last]
             data[j][last] = temp
             j += 1
@@ -28,10 +27,12 @@ def check_len_row(data, line):
         return False
     return True
 
+
 def check_len_col(data):
     return len(data) == len(data[0])
-    
-def     reading_data(data):
+
+
+def reading_data(data):
     for line in sys.stdin:
         temp = []
         try:
@@ -47,6 +48,7 @@ def     reading_data(data):
     if  len_x == 0:
         return False
     return True
+
 
 if reading_data(data) == True and check_len_col(data) == True:
     data = rotate_matrix(data)

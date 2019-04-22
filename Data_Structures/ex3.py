@@ -23,6 +23,7 @@
 def check_if_anagrams(l1, l2):
     return sorted(l1) == sorted(l2)
 
+
 try:
     l1=list(''.join(input()))
     l2=list(''.join(input()))

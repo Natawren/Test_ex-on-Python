@@ -3,13 +3,16 @@ import sys
 
 data = []
 zerros = [[],[]]
+
+
 def check_len_row(data, line):
     if len(data) > 0 and len(data[0]) != len(line.split()):
         print("Wrong number of ints in row\n")
         return False
     return True
 
-def     reading_data(data):
+
+def reading_data(data):
     for line in sys.stdin:
         try:
             i = 0
@@ -26,7 +29,8 @@ def     reading_data(data):
         return False
     return True
 
-def     check_null(data, zerros):
+
+def check_null(data, zerros):
     for i in range(len(data)):
         for j in range(len(data[i])):
             if data[i][j] == '0':
@@ -36,7 +40,8 @@ def     check_null(data, zerros):
                     zerros[1].append(j)
     return zerros
 
-def     set_null(data):
+
+def set_null(data):
     for i in zerros[0]:
         for j in range(len(data[i])):
             data[i][j] = 0
